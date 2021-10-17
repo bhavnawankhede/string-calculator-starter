@@ -4,11 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class StringCalculator {
-
 	 public int add(String input) {
-	    	//String numbers[]=input.split(",|\n|;");
+		 
 	    	String numbers[]=getSplit(input);
-	    	//negativeNumber(numbers);
 	    	if (input.isEmpty()) {
 	            return 0;
 	        } 
@@ -21,18 +19,12 @@ class StringCalculator {
 		private String[] getSplit(String string) {
 			if(string.startsWith("//")) {
 				Matcher matcher=Pattern.compile("//(.)\n(.*)").matcher(string);
-				Matcher matcher1=Pattern.compile("//(...)\n(...*)").matcher(string);
 				if(matcher.matches()) {
 					String delimiter=matcher.group(1);
 					String toSplit=matcher.group(2);
 					return toSplit.split(delimiter);
 				}
 				
-				if(matcher1.matches()) {
-					String delimiter=matcher1.group(1);
-					String toSplit=matcher1.group(2);
-					return toSplit.split(delimiter);
-				}
 			}
 			return string.split(",|\n");
 		}
