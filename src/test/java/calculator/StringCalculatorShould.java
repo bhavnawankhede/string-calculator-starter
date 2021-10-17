@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorShould {
 
-    StringCalculator stringCalculator = new StringCalculator();
+	StringCalculator stringCalculator = new StringCalculator();
 
 
 
@@ -44,4 +44,12 @@ class StringCalculatorShould {
 	    void string_with_negative_input_throw_Exception() {
 	      assertEquals(stringCalculator.add("-1,9,-8"),"Negatives not allowed");
 	    }
+	   
+	   @Test
+	    void string_with_numbers_Greater_Than_1000_Are_Ignored() {
+	    	StringCalculator stringCalculator = new StringCalculator();
+	        assertEquals(stringCalculator.add("5,12,1001"), 17);
+	        assertEquals(stringCalculator.add("14124,22\n4,1214"), 26);
+	    }
+	    
 }
